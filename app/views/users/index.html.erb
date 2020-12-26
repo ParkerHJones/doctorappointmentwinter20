@@ -1,4 +1,6 @@
 <h1> Doctor Info </h1>
+<%= link_to 'New Doctor', new_user_path  %>
+<br>
 <% @users.each do |user| %>
 <%= user.first_name %>
 <%= user.last_name %>
