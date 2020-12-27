@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  get 'appts/index'
+  get 'appts/show'
+  get 'appts/new'
+  get 'appts/edit'
   get 'users/index'
   get 'users/show'
   root "users#index"

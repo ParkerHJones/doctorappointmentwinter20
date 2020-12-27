@@ -1,2 +1,28 @@
-<h1>Doctors#show</h1>
-<p>Find me in app/views/doctors/show.html.erb</p>
+<h1>Dr. <%= @doctor.name %></h1>
+<h3>Profession: <%= @doctor.profession %></h3>
+<h4>MD? <%= @doctor.md %></h4>
+
+<%= link_to 'Edit Doctor', edit_doctor_path(@doctor) %>
+<%= link_to 'Delete Doctor', doctor_path(@doctor), method: :delete %>
+<%= link_to 'Back to all Doctors', doctors_path %>
+
+<br />
+<br />
+<br />
+<br />
+
+<h1>Dr.<%= @doctor.name %> Appointments</h1>
+
+<%= link_to 'Add Appointment', new_doctor_appt_path(@doctor) %> 
+
+<% @appts.each do |appt|%>
+<br>
+<li>
+<%= appt.date.strftime('%a, %b, %d, %Y')
+-
+<%= appt.time.strftime('%l:%M %p') %>
+</li>
+<br>
+<%= link_to 'Delete Appointment', doctor_appt_path(@doctor.id,appt.id) method: :delete %>
+
+<% end %>

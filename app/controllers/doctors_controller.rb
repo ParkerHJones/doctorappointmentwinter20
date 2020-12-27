@@ -8,6 +8,7 @@ class DoctorsController < ApplicationController
   end
 
   def show
+    @appts = @doctor.appts
   end
 
   def new
@@ -41,7 +42,8 @@ class DoctorsController < ApplicationController
     redirect_to doctors_path
   end 
 
-private 
+
+  private 
 
 
   def set_doctor
@@ -50,7 +52,7 @@ private
 
   def doctor_params
     params.require(:doctor).permit(:name, :profession, :md)
+  end 
 end
-
 end 
-end 
+ 
